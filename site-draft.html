@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#06172b">
+  <meta name="description" content="fAIr verbunden – KI verstehen. Digital mithalten. Gesellschaft mitgestalten. Für jede Generation, die digital mithalten will.">
+  <title>fAIr verbunden | KI verstehen. Digital mithalten. Gesellschaft mitgestalten.</title>
+  <style>
+    :root{
+      --navy:#041326;
+      --navy2:#071b33;
+      --panel:#0b223d;
+      --ink:#f7fbff;
+      --muted:#afc2d5;
+      --cyan:#27ddf4;
+      --blue:#6d7dff;
+      --pink:#ff2b9a;
+      --pink2:#ff77bf;
+      --line:rgba(255,255,255,.12);
+      --glass:rgba(10,31,55,.68);
+      --shadow:0 24px 80px rgba(0,0,0,.34);
+      --radius:28px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 12% 6%,rgba(39,221,244,.10),transparent 28rem),
+        radial-gradient(circle at 88% 14%,rgba(255,43,154,.08),transparent 25rem),
+        linear-gradient(180deg,#031123 0%,#06182d 48%,#041222 100%);
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      overflow-x:hidden;
+    }
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.12;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+      background-size:40px 40px;
+      mask-image:linear-gradient(to bottom,black,transparent 80%);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1180px,calc(100% - 36px));margin:auto}
+    .eyebrow,.kicker{
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      font-weight:800;
+      font-size:12px;
+    }
+    .eyebrow{display:flex;align-items:center;gap:11px;color:#dce8f4}
+    .eyebrow:before,.kicker:before{
+      content:"";
+      display:inline-block;
+      width:34px;height:3px;border-radius:99px;
+      background:linear-gradient(90deg,var(--cyan),var(--pink));
+      vertical-align:middle;margin-right:10px;
+    }
+    .kicker{color:#9fb5c9}
+    .grad{
+      background:linear-gradient(105deg,var(--cyan) 10%,#7d83ff 50%,var(--pink) 92%);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+
+    /* brand */
+    .brandlock{display:inline-flex;align-items:center;gap:12px}
+    .navbrand{margin-right:auto}
+    .wordmark{
+      font-weight:900;
+      letter-spacing:-.045em;
+      font-size:24px;
+      white-space:nowrap;
+      line-height:1;
+    }
+    .wordmark .a{color:var(--cyan)}
+    .wordmark .istar{
+      position:relative;
+      color:var(--pink);
+      display:inline-block;
+    }
+    .wordmark .istar:before{
+      content:"✦";
+      position:absolute;
+      font-size:7px;
+      color:#fff;
+      left:50%;
+      transform:translateX(-50%);
+      top:-11px;
+      text-shadow:0 0 10px rgba(39,221,244,.55);
+    }
+    .wordmark .verb{font-weight:850;color:#fff}
+    .fair-r{color:#fff}
+    .nav-infinity{
+      width:54px;height:30px;display:block;flex:0 0 auto;
+      filter:drop-shadow(0 6px 14px rgba(39,221,244,.12));
+    }
+
+    nav{
+      position:sticky;top:0;z-index:50;
+      background:rgba(3,17,35,.78);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,.09);
+    }
+    .navin{height:76px;display:flex;align-items:center;gap:28px}
+    .links{display:flex;gap:24px;color:#d0ddea;font-size:14px}
+    .links a{transition:.2s}
+    .links a:hover{color:#fff}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      padding:13px 19px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.025);
+      font-weight:800;font-size:14px;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.06)}
+    .btn.hot{
+      border:0;
+      background:linear-gradient(100deg,var(--pink),#d947dc 48%,var(--cyan));
+      box-shadow:0 12px 34px rgba(255,43,154,.15);
+    }
+
+    /* hero */
+    .hero{
+      padding:116px 0 104px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      width:680px;height:680px;
+      right:-250px;top:-120px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(39,221,244,.08),transparent 66%);
+      pointer-events:none;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.42fr) minmax(300px,.58fr);
+      gap:76px;
+      align-items:center;
+      position:relative;
+      z-index:1;
+    }
+    h1{
+      font-size:clamp(54px,5.2vw,82px);
+      line-height:.98;
+      letter-spacing:-.055em;
+      margin:24px 0 26px;
+      max-width:790px;
+    }
+    .lead{
+      font-size:clamp(18px,1.55vw,22px);
+      line-height:1.62;
+      color:#c6d6e5;
+      max-width:780px;
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+    .status{
+      margin-top:28px;display:flex;gap:10px;align-items:center;
+      color:#91a8bc;font-size:13px;
+    }
+    .status i{
+      width:7px;height:7px;border-radius:50%;
+      background:var(--cyan);
+      box-shadow:0 0 14px var(--cyan);
+    }
+    .hero-symbol{
+      min-height:380px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+    .hero-infinity{
+      width:min(100%,390px);
+      height:auto;
+      display:block;
+      filter:drop-shadow(0 20px 45px rgba(0,0,0,.20));
+    }
+    .hero-symbol:after{
+      content:"";
+      position:absolute;
+      width:360px;height:160px;
+      background:radial-gradient(ellipse,rgba(109,125,255,.10),transparent 70%);
+      z-index:-1;
+    }
+    .hero-symbol-copy{
+      margin-top:24px;
+      text-align:center;
+      color:#a8bdcf;
+      font-size:12px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      line-height:1.7;
+    }
+    .chip{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.035);
+      border-radius:999px;padding:9px 12px;
+      color:#bdd0df;font-size:12px;
+    }
+
+    section{padding:96px 0;border-top:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;margin-bottom:44px;align-items:end}
+    h2{font-size:clamp(38px,5.1vw,68px);line-height:1.02;letter-spacing:-.05em;margin:10px 0 0}
+    .section-copy{font-size:19px;line-height:1.67;color:#b9cbda;max-width:700px}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .card{
+      min-height:250px;padding:28px;border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+      position:relative;overflow:hidden;
+    }
+    .card:before{
+      content:"";position:absolute;width:160px;height:160px;border-radius:50%;
+      right:-70px;top:-80px;background:var(--glow);
+      filter:blur(25px);opacity:.23;
+    }
+    .num{font:800 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#8fa8bb;letter-spacing:.16em}
+    .card h3{font-size:25px;letter-spacing:-.035em;margin:58px 0 11px}
+    .card p{margin:0;color:#aabfd0;line-height:1.56;font-size:15px}
+
+    /* democracy */
+    .feature-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:stretch}
+    .feature-copy{
+      border:1px solid var(--line);border-radius:34px;padding:42px;
+      background:
+        radial-gradient(circle at 100% 0%,rgba(255,43,154,.13),transparent 35%),
+        rgba(255,255,255,.025);
+    }
+    .feature-copy .quote{font-size:clamp(42px,5.8vw,76px);line-height:.98;letter-spacing:-.055em;font-weight:900;margin:18px 0 24px}
+    .feature-copy .quote span{color:var(--cyan)}
+    .feature-copy p{font-size:18px;line-height:1.68;color:#c2d3e1}
+    .feature-panel{
+      border:1px solid var(--line);border-radius:34px;padding:32px;
+      background:
+        radial-gradient(circle at 10% 90%,rgba(39,221,244,.10),transparent 42%),
+        rgba(255,255,255,.02);
+    }
+    .bigline{font-size:42px;line-height:1.03;font-weight:900;letter-spacing:-.045em;margin:0 0 22px}
+    .topic-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .topic{padding:18px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03)}
+    .topic strong{display:block;font-size:16px;margin-bottom:7px}
+    .topic small{color:#9fb6c9;line-height:1.48}
+
+    /* impact */
+    .impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .impact{
+      padding:24px;border-top:2px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg,rgba(255,255,255,.025),transparent);
+    }
+    .impact strong{font-size:23px;letter-spacing:-.03em;display:block;margin-bottom:9px}
+    .impact p{margin:0;color:#9fb4c7;line-height:1.55;font-size:14px}
+
+    /* materials */
+    .materials-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .material-card{
+      border:1px solid var(--line);border-radius:28px;overflow:hidden;
+      background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+      box-shadow:0 18px 50px rgba(0,0,0,.18);
+    }
+    .material-thumb{
+      aspect-ratio:4/5;
+      background:#07182c;
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;
+    }
+    .material-thumb img{
+      width:100%;height:100%;display:block;
+      object-fit:contain;object-position:center;
+      background:#07182c;
+      transition:transform .35s ease;
+    }
+    .material-card:hover .material-thumb img{transform:scale(1.015)}
+    .material-body{padding:24px 24px 26px}
+    .material-body h3{margin:0 0 9px;font-size:26px;letter-spacing:-.035em}
+    .material-body p{margin:0;color:#a9bed0;line-height:1.55;font-size:15px}
+    .material-note{margin-top:10px;color:#7f98ae;font-size:12px}
+
+    /* support */
+    .support{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}
+    .support-main{
+      padding:42px;border-radius:32px;border:1px solid var(--line);
+      background:
+        radial-gradient(circle at 100% 0%,rgba(255,43,154,.15),transparent 38%),
+        linear-gradient(135deg,#0a2948,#091b31 55%,#22112d);
+    }
+    .support-main h2{margin-bottom:22px}
+    .support-main p{font-size:19px;line-height:1.65;color:#c4d4e2}
+    .regions{display:flex;gap:9px;flex-wrap:wrap;margin-top:26px}
+    .asks{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .ask{padding:23px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.03)}
+    .ask strong{font-size:17px}
+    .ask p{font-size:14px;color:#9fb4c7;line-height:1.48;margin:7px 0 0}
+
+    footer{padding:48px 0 60px;border-top:1px solid var(--line);color:#8da5b9;font-size:13px}
+    .footer-grid{display:flex;justify-content:space-between;gap:28px;align-items:flex-start}
+    .footer-copy{max-width:700px;line-height:1.55}
+    .footer-slogan{margin-top:10px;color:#b8cad8}
+
+    @media(max-width:980px){
+      .links{display:none}
+      .hero-grid,.section-head,.feature-grid,.support{grid-template-columns:1fr}
+      .hero{padding-top:70px}
+      .hero-symbol{min-height:300px}
+      .cards,.impact-grid{grid-template-columns:1fr 1fr}
+      .materials-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:620px){
+      .wrap{width:min(100% - 24px,1180px)}
+      .navin{height:68px}
+      .wordmark{font-size:20px}.nav-infinity{width:44px;height:24px}
+      .btn.navcta{display:none}
+      h1{font-size:clamp(50px,15vw,72px)}
+      .cards,.impact-grid,.topic-list,.asks{grid-template-columns:1fr}
+      section{padding:72px 0}
+      .hero-symbol{min-height:260px}
+      
+      
+      .feature-copy,.feature-panel,.support-main{padding:28px}
+      .material-thumb{aspect-ratio:4/5}
+      .footer-grid{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="wrap navin">
+    <a class="brandlock navbrand" href="#top" aria-label="fAIr verbunden Startseite">
+      <span class="wordmark">
+        f<span class="a">A</span><span class="istar">I</span><span class="fair-r">r</span>
+        <span class="verb">verbunden</span>
+      </span>
+      <svg class="nav-infinity" viewBox="0 0 240 120" role="img" aria-label="fAIr verbunden Infinity-Symbol">
+        <defs>
+          <linearGradient id="navInf" x1="0" y1="0" x2="1" y2="1">
+            <stop stop-color="#27ddf4"/>
+            <stop offset=".48" stop-color="#6d7dff"/>
+            <stop offset="1" stop-color="#ff2b9a"/>
+          </linearGradient>
+        </defs>
+        <path d="M18 60 C48 18 83 18 120 60 C157 102 192 102 222 60 C192 18 157 18 120 60 C83 102 48 102 18 60"
+              fill="none" stroke="url(#navInf)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <div class="links">
+      <a href="#idee">Idee</a>
+      <a href="#projekte">Themen</a>
+      <a href="#stammtisch">Demokratie-Stammtisch</a>
+      <a href="#materialien">Infomaterial</a>
+      <a href="#unterstuetzen">Unterstützen</a>
+    </div>
+    <a class="btn navcta" href="#unterstuetzen">Mitmachen</a>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Für jede Generation, die digital mithalten will.</div>
+        <h1>KI verstehen.<br>Digital mithalten.<br><span class="grad">Gesellschaft mitgestalten.</span></h1>
+        <p class="lead">fAIr verbunden bringt KI und neue Technologien dorthin, wo sie im Alltag ankommen: verständlich, praktisch und ohne Berührungsangst. Wir stärken digitale Kompetenz und schaffen neue Zugänge zu gesellschaftlicher und politischer Teilhabe, damit Menschen Entwicklungen nicht nur mitbekommen, sondern mitreden und mitgestalten können.</p>
+        <div class="hero-actions">
+          <a class="btn hot" href="#stammtisch">Demokratie-Stammtisch entdecken →</a>
+          <a class="btn" href="#projekte">Unsere Themen</a>
+        </div>
+        <div class="status"><i></i><span>Aufbauphase · Mannheim · Bad Langensalza · Kiel · online</span></div>
+      </div>
+
+      <div class="hero-symbol" aria-label="fAIr verbunden Infinity-Symbol">
+        <svg class="hero-infinity" viewBox="0 0 520 260" role="img" aria-label="Infinity-Symbol">
+          <defs>
+            <linearGradient id="heroInf" x1="0" y1="0" x2="1" y2="1">
+              <stop stop-color="#27ddf4"/>
+              <stop offset=".48" stop-color="#6d7dff"/>
+              <stop offset="1" stop-color="#ff2b9a"/>
+            </linearGradient>
+          </defs>
+          <path d="M38 130 C100 46 178 46 260 130 C342 214 420 214 482 130 C420 46 342 46 260 130 C178 214 100 214 38 130"
+                fill="none" stroke="url(#heroInf)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="hero-symbol-copy">Menschen · Technologie · Gesellschaft<br>Digital · Sicher · Demokratisch</div>
+      </div>
+    </div>
+  </header>
+
+  <section id="idee">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Wofür wir stehen</div>
+          <h2>Technologie soll Möglichkeiten öffnen – nicht Menschen abhängen.</h2>
+        </div>
+        <p class="section-copy">KI, digitale Dienste und neue Formen öffentlicher Kommunikation verändern, wie wir lernen, entscheiden und uns beteiligen. Wir machen diese Entwicklung verständlich und nutzbar – mit Formaten, die Wissen vermitteln, Sicherheit schaffen und Mitgestaltung ermöglichen.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card" style="--glow:#27ddf4">
+          <span class="num">01 / VERSTEHEN</span>
+          <h3>KI & neue Technologien</h3>
+          <p>Ausprobieren, Zusammenhänge verstehen und Chancen wie Grenzen fundiert einordnen.</p>
+        </article>
+        <article class="card" style="--glow:#ff2b9a">
+          <span class="num">02 / ANWENDEN</span>
+          <h3>Digital souverän handeln</h3>
+          <p>Digitale Möglichkeiten praktisch nutzen, sicherer entscheiden und Technik selbstbestimmt in den Alltag integrieren.</p>
+        </article>
+        <article class="card" style="--glow:#6d7dff">
+          <span class="num">03 / EINORDNEN</span>
+          <h3>Information & Risiken</h3>
+          <p>Quellen prüfen, Desinformation erkennen, digitale Risiken verstehen und Informationen souveräner bewerten.</p>
+        </article>
+        <article class="card" style="--glow:#b45cff">
+          <span class="num">04 / MITGESTALTEN</span>
+          <h3>Gesellschaft & Politik</h3>
+          <p>Demokratische Prozesse verstehen und digitale wie analoge Wege nutzen, um die eigene Stimme einzubringen.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="stammtisch">
+    <div class="wrap">
+      <div class="feature-grid">
+        <div class="feature-copy">
+          <div class="kicker">Pilotprojekt · Digitaler Demokratie-Stammtisch</div>
+          <div class="quote">Demokratie braucht <span>jede Stimme.</span></div>
+          <p>Ein moderiertes Format politischer Bildung und Beteiligung – online und vor Ort. Für Menschen, die aktuelle politische Fragen verstehen, unterschiedliche Perspektiven prüfen und ihre eigene Position fundiert einbringen wollen.</p>
+          <p>Digital zugänglich, damit Mitgestaltung nicht an Mobilität, Entfernung oder fehlenden Präsenzangeboten scheitert.</p>
+          <div class="hero-actions">
+            <a class="btn hot" href="#unterstuetzen">Pilotprojekt möglich machen →</a>
+          </div>
+        </div>
+        <div class="feature-panel">
+          <div class="bigline">Informieren.<br>Diskutieren.<br><span class="grad">Mitgestalten.</span></div>
+          <div class="topic-list">
+            <div class="topic"><strong>Demokratie & Institutionen</strong><small>Wie Entscheidungen entstehen, wer wofür zuständig ist und wie demokratische Prozesse funktionieren.</small></div>
+            <div class="topic"><strong>Wahlen & Beteiligung</strong><small>Welche Wege es gibt, sich informiert, legal und wirksam einzubringen.</small></div>
+            <div class="topic"><strong>Desinformation & Öffentlichkeit</strong><small>Fake News, Deepfakes, Quellenprüfung und politische Kommunikation im Netz.</small></div>
+            <div class="topic"><strong>Politik im digitalen Wandel</strong><small>Wie Digitalisierung und KI Debatten, Zugang und Mitbestimmung verändern.</small></div>
+          </div>
+          <p style="margin:22px 0 0;color:#9fb6c9;line-height:1.55">Parteipolitisch unabhängig, kontrovers, verständlich und faktenorientiert. Keine Plauderrunde, sondern politische Bildung mit echter Beteiligungsperspektive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projekte">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Unsere Themen</div>
+          <h2>Vier Felder. Ein Ziel: digitale Selbstbestimmung.</h2>
+        </div>
+        <p class="section-copy">Der Demokratie-Stammtisch ist unser Pilotprojekt. Daneben entstehen eigenständige Workshops, Veranstaltungen und Orientierungsangebote zu den Themen, die digitale Teilhabe heute entscheiden.</p>
+      </div>
+      <div class="cards">
+        <article class="card" style="--glow:#27ddf4"><span class="num">THEMA A</span><h3>KI & neue Technologien</h3><p>Verstehen, ausprobieren und kritisch einordnen: Was kann KI, wo liegen Grenzen und was bedeutet sie für den eigenen Alltag?</p></article>
+        <article class="card" style="--glow:#ff2b9a"><span class="num">THEMA B</span><h3>Sicher digital</h3><p>Betrug, Social Engineering, Kontosicherheit und Schutz persönlicher Daten verständlich und praktisch vermitteln.</p></article>
+        <article class="card" style="--glow:#6d7dff"><span class="num">THEMA C</span><h3>Medien & Desinformation</h3><p>Quellen prüfen, Deepfakes erkennen, Manipulation einordnen und verlässliche Informationen besser unterscheiden.</p></article>
+        <article class="card" style="--glow:#b45cff"><span class="num">THEMA D</span><h3>Datenschutz & digitale Spuren</h3><p>Verstehen, welche Daten entstehen, wie digitale Informationen verknüpft werden können und welche Möglichkeiten zum Schutz bestehen.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="wirkung">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">Wirkung</div><h2>Nicht nur Veranstaltungen. Veränderung, die sichtbar wird.</h2></div>
+        <p class="section-copy">Wir wollen nachvollziehbar zeigen, was unsere Formate bewirken. Deshalb denken wir Wirkung von Anfang an mit – von Zugang und Kompetenz bis Beteiligung und Übertragbarkeit.</p>
+      </div>
+      <div class="impact-grid">
+        <div class="impact"><strong>Zugang</strong><p>Wer wird erreicht – auch Menschen, für die klassische Präsenzangebote schwer zugänglich sind?</p></div>
+        <div class="impact"><strong>Kompetenz</strong><p>Was verstehen und können Teilnehmende nach einem Angebot besser als vorher?</p></div>
+        <div class="impact"><strong>Beteiligung</strong><p>Welche Möglichkeiten gesellschaftlicher und politischer Mitwirkung werden tatsächlich genutzt?</p></div>
+        <div class="impact"><strong>Transfer</strong><p>Welche Formate funktionieren so gut, dass sie an weiteren Orten und mit Partnern weitergetragen werden können?</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="materialien">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Infomaterial</div>
+          <h2>Unsere Themen zum Ansehen und Weitergeben.</h2>
+        </div>
+        <p class="section-copy">Erste Flyer- und Kampagnenentwürfe für Projekte, Veranstaltungen, Partnergespräche und Öffentlichkeitsarbeit. Die Inhalte entwickeln wir laufend weiter – die visuelle Linie steht.</p>
+      </div>
+
+      <div class="materials-grid">
+        <article class="material-card">
+          <div class="material-thumb"><img loading="lazy" src="ChatGPT%20Image%2021.%20Sept.%202026,%2018_40_13%20(4).png" alt="Flyer Digitaler Demokratie-Stammtisch"></div>
+          <div class="material-body"><h3>Digitaler Demokratie-Stammtisch</h3><p>Politische Bildung, Desinformation und demokratische Beteiligung – zugänglich online und vor Ort.</p><div class="material-note">Pilotprojekt · politische Teilhabe</div></div>
+        </article>
+        <article class="material-card">
+          <div class="material-thumb"><img loading="lazy" src="ChatGPT%20Image%2021.%20Sept.%202026,%2018_40_13%20(3).png" alt="Flyer digitale Teilhabe"></div>
+          <div class="material-body"><h3>Digitale Teilhabe</h3><p>Unser Ansatz auf einen Blick: verstehen, sicher handeln, selbstbestimmt nutzen und teilhaben.</p><div class="material-note">Vereinsprofil · digitale Kompetenz</div></div>
+        </article>
+        <article class="material-card">
+          <div class="material-thumb"><img loading="lazy" src="ChatGPT%20Image%2021.%20Sept.%202026,%2018_40_13%20(2).png" alt="Flyer Teilhabe und Partnerschaften"></div>
+          <div class="material-body"><h3>Teilhabe & Partnerschaften</h3><p>Unser Ansatz für Förderer, Unternehmen, Stiftungen, Kommunen und mögliche Projektpartner.</p><div class="material-note">Partnerschaften · Wirkung</div></div>
+        </article>
+        <article class="material-card">
+          <div class="material-thumb"><img loading="lazy" src="ChatGPT%20Image%2021.%20Sept.%202026,%2017_47_20.png" alt="Übersicht Flyer-Ideen"></div>
+          <div class="material-body"><h3>Flyer-Serie</h3><p>Eine gemeinsame visuelle Linie für Demokratie, Sicherheit, KI-Kompetenz und digitale Teilhabe.</p><div class="material-note">Kampagnenlinie · Infomaterial</div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="unterstuetzen">
+    <div class="wrap support">
+      <div class="support-main">
+        <div class="kicker">Partner für den Aufbau</div>
+        <h2>Aus Ausstattung wird Zugang. Aus Partnerschaft wird Wirkung.</h2>
+        <p>Wir suchen Unternehmen, Stiftungen, Kommunen und engagierte Partner, die konkrete Bildungs- und Beteiligungsangebote mit uns aufbauen. Technik wird bei uns nicht zur Schreibtischdekoration, sondern zum Werkzeug für Workshops, politische Bildung und digitale Selbstbestimmung.</p>
+        <div class="regions">
+          <span class="chip">Mannheim</span>
+          <span class="chip">Bad Langensalza</span>
+          <span class="chip">Kiel</span>
+          <span class="chip">online</span>
+        </div>
+      </div>
+      <div class="asks">
+        <div class="ask"><strong>Technik & Sachspenden</strong><p>Laptops, Tablets, Smartphones, Monitore und Präsentationstechnik für Schulungen und mobile Angebote.</p></div>
+        <div class="ask"><strong>Räume & Infrastruktur</strong><p>Orte und technische Infrastruktur für Workshops, Veranstaltungen und hybride Beteiligungsformate.</p></div>
+        <div class="ask"><strong>Know-how & Pro bono</strong><p>Fachwissen, Schulungen, Software, Beratung und Kontakte für einen professionellen Aufbau.</p></div>
+        <div class="ask"><strong>Projektpartnerschaften</strong><p>Finanzierung und gemeinsame Pilotprojekte mit klarer Zielgruppe, nachvollziehbarem Nutzen und messbarer Wirkung.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <div class="brandlock">
+        <svg class="brandmark" viewBox="0 0 220 110" aria-hidden="true">
+          <defs>
+            <linearGradient id="brandG3" x1="0" y1="0" x2="1" y2="1">
+              <stop stop-color="#27ddf4"/>
+              <stop offset=".48" stop-color="#6d7dff"/>
+              <stop offset="1" stop-color="#ff2b9a"/>
+            </linearGradient>
+          </defs>
+          <path d="M18 62C46 17 82 18 111 53c26 31 49 34 91-12-19 50-58 59-91 23C80 29 54 28 18 62Z"
+                fill="none" stroke="url(#brandG3)" stroke-width="12" stroke-linecap="round"/>
+        </svg>
+        <span class="wordmark">f<span class="a">A</span><span class="istar">I</span><span class="fair-r">r</span> <span class="verb">verbunden</span></span>
+      </div>
+      <div class="footer-slogan">Für jede Generation, die digital mithalten will.</div>
+    </div>
+    <div class="footer-copy">Website im Aufbau. Bis zur Eintragung verwenden wir bewusst noch nicht den Zusatz „e.V.“. Inhalte, Projekte und Infomaterial werden fortlaufend weiterentwickelt.</div>
+  </div>
+</footer>
+</body>
+</html>
