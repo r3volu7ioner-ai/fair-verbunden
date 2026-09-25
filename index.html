@@ -69,92 +69,139 @@
     }
 
     /* brand */
-    .brandlock{display:inline-flex;align-items:center;gap:14px}
-    .brandmark{width:64px;height:34px;flex:0 0 auto;filter:drop-shadow(0 7px 18px rgba(39,221,244,.18))}
-    .wordmark{font-weight:900;letter-spacing:-.045em;font-size:24px;white-space:nowrap}
-    .wordmark .a{color:#d9f7ff}
-    .wordmark .istar{position:relative;color:var(--pink);display:inline-block}
+    .brandlock{display:inline-flex;align-items:center;gap:12px}
+    .navbrand{margin-right:auto}
+    .wordmark{
+      font-weight:900;
+      letter-spacing:-.045em;
+      font-size:24px;
+      white-space:nowrap;
+      line-height:1;
+    }
+    .wordmark .a{color:var(--cyan)}
+    .wordmark .istar{
+      position:relative;
+      color:var(--pink);
+      display:inline-block;
+    }
     .wordmark .istar:before{
       content:"✦";
       position:absolute;
-      font-size:9px;
-      color:#f7fbff;
+      font-size:7px;
+      color:#fff;
       left:50%;
       transform:translateX(-50%);
-      top:-10px;
-      text-shadow:0 0 12px rgba(39,221,244,.75);
+      top:-11px;
+      text-shadow:0 0 10px rgba(39,221,244,.55);
     }
     .wordmark .verb{font-weight:850;color:#fff}
-    .wordmark .fair-r{color:#fff}
+    .fair-r{color:#fff}
+    .nav-infinity{
+      width:54px;height:30px;display:block;flex:0 0 auto;
+      filter:drop-shadow(0 6px 14px rgba(39,221,244,.12));
+    }
 
     nav{
       position:sticky;top:0;z-index:50;
-      background:rgba(3,17,35,.74);
+      background:rgba(3,17,35,.78);
       backdrop-filter:blur(18px);
-      border-bottom:1px solid var(--line);
+      border-bottom:1px solid rgba(255,255,255,.09);
     }
     .navin{height:76px;display:flex;align-items:center;gap:28px}
-    .navbrand{margin-right:auto}
     .links{display:flex;gap:24px;color:#d0ddea;font-size:14px}
     .links a{transition:.2s}
     .links a:hover{color:#fff}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:9px;
       padding:13px 19px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(255,255,255,.035);
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.025);
       font-weight:800;font-size:14px;
       transition:.2s ease;
     }
-    .btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.075)}
+    .btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.06)}
     .btn.hot{
       border:0;
-      background:linear-gradient(100deg,var(--pink),#da43dc 48%,var(--cyan));
-      box-shadow:0 12px 36px rgba(255,43,154,.18);
+      background:linear-gradient(100deg,var(--pink),#d947dc 48%,var(--cyan));
+      box-shadow:0 12px 34px rgba(255,43,154,.15);
     }
 
     /* hero */
-    .hero{padding:100px 0 88px;position:relative}
-    .hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:72px;align-items:center}
-    h1{
-      font-size:clamp(58px,7.3vw,104px);
-      line-height:.93;
-      letter-spacing:-.068em;
-      margin:22px 0 28px;
-      max-width:900px;
+    .hero{
+      padding:116px 0 104px;
+      position:relative;
+      overflow:hidden;
     }
-    .lead{font-size:clamp(18px,2vw,23px);line-height:1.55;color:#c7d7e6;max-width:790px}
+    .hero:before{
+      content:"";
+      position:absolute;
+      width:680px;height:680px;
+      right:-250px;top:-120px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(39,221,244,.08),transparent 66%);
+      pointer-events:none;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.42fr) minmax(300px,.58fr);
+      gap:76px;
+      align-items:center;
+      position:relative;
+      z-index:1;
+    }
+    h1{
+      font-size:clamp(54px,5.2vw,82px);
+      line-height:.98;
+      letter-spacing:-.055em;
+      margin:24px 0 26px;
+      max-width:790px;
+    }
+    .lead{
+      font-size:clamp(18px,1.55vw,22px);
+      line-height:1.62;
+      color:#c6d6e5;
+      max-width:780px;
+    }
     .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
     .status{
       margin-top:28px;display:flex;gap:10px;align-items:center;
-      color:#98aec2;font-size:13px;
+      color:#91a8bc;font-size:13px;
     }
-    .status i{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 16px var(--cyan)}
-    .brand-stage{
+    .status i{
+      width:7px;height:7px;border-radius:50%;
+      background:var(--cyan);
+      box-shadow:0 0 14px var(--cyan);
+    }
+    .hero-symbol{
+      min-height:380px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
       position:relative;
-      min-height:500px;
-      display:grid;
-      place-items:center;
-      border:1px solid var(--line);
-      border-radius:38px;
-      background:
-        radial-gradient(circle at 35% 25%,rgba(39,221,244,.15),transparent 35%),
-        radial-gradient(circle at 72% 70%,rgba(255,43,154,.14),transparent 40%),
-        linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
-      box-shadow:var(--shadow);
-      overflow:hidden;
     }
-    .brand-stage:before{
+    .hero-infinity{
+      width:min(100%,390px);
+      height:auto;
+      display:block;
+      filter:drop-shadow(0 20px 45px rgba(0,0,0,.20));
+    }
+    .hero-symbol:after{
       content:"";
-      position:absolute;inset:18px;
-      border:1px solid rgba(255,255,255,.05);
-      border-radius:28px;
+      position:absolute;
+      width:360px;height:160px;
+      background:radial-gradient(ellipse,rgba(109,125,255,.10),transparent 70%);
+      z-index:-1;
     }
-    .hero-signature{position:relative;z-index:2;text-align:center;width:min(88%,500px)}
-    .hero-signature .brandmark{width:220px;height:118px;margin-bottom:18px}
-    .hero-signature .wordmark{font-size:clamp(42px,5.2vw,70px);display:block}
-    .hero-signature .tag{margin-top:16px;color:#c2d3e1;font-size:15px;letter-spacing:.12em;text-transform:uppercase}
-    .chips{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:26px}
+    .hero-symbol-copy{
+      margin-top:24px;
+      text-align:center;
+      color:#a8bdcf;
+      font-size:12px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      line-height:1.7;
+    }
     .chip{
       border:1px solid var(--line);
       background:rgba(255,255,255,.035);
@@ -264,22 +311,21 @@
       .links{display:none}
       .hero-grid,.section-head,.feature-grid,.support{grid-template-columns:1fr}
       .hero{padding-top:70px}
-      .brand-stage{min-height:390px}
+      .hero-symbol{min-height:300px}
       .cards,.impact-grid{grid-template-columns:1fr 1fr}
       .materials-grid{grid-template-columns:1fr}
     }
     @media(max-width:620px){
       .wrap{width:min(100% - 24px,1180px)}
       .navin{height:68px}
-      .wordmark{font-size:20px}
-      .brandmark{width:54px;height:28px}
+      .wordmark{font-size:20px}.nav-infinity{width:44px;height:24px}
       .btn.navcta{display:none}
       h1{font-size:clamp(50px,15vw,72px)}
       .cards,.impact-grid,.topic-list,.asks{grid-template-columns:1fr}
       section{padding:72px 0}
-      .brand-stage{min-height:330px}
-      .hero-signature .brandmark{width:160px;height:86px}
-      .hero-signature .wordmark{font-size:44px}
+      .hero-symbol{min-height:260px}
+      
+      
       .feature-copy,.feature-panel,.support-main{padding:28px}
       .material-thumb{aspect-ratio:4/5}
       .footer-grid{flex-direction:column}
@@ -290,23 +336,21 @@
 <nav>
   <div class="wrap navin">
     <a class="brandlock navbrand" href="#top" aria-label="fAIr verbunden Startseite">
-      <svg class="brandmark" viewBox="0 0 220 110" role="img" aria-label="fAIr verbunden Infinity-Symbol">
+      <span class="wordmark">
+        f<span class="a">A</span><span class="istar">I</span><span class="fair-r">r</span>
+        <span class="verb">verbunden</span>
+      </span>
+      <svg class="nav-infinity" viewBox="0 0 240 120" role="img" aria-label="fAIr verbunden Infinity-Symbol">
         <defs>
-          <linearGradient id="brandG1" x1="0" y1="0" x2="1" y2="1">
+          <linearGradient id="navInf" x1="0" y1="0" x2="1" y2="1">
             <stop stop-color="#27ddf4"/>
             <stop offset=".48" stop-color="#6d7dff"/>
             <stop offset="1" stop-color="#ff2b9a"/>
           </linearGradient>
         </defs>
-        <path d="M18 62C46 17 82 18 111 53c26 31 49 34 91-12-19 50-58 59-91 23C80 29 54 28 18 62Z"
-              fill="none" stroke="url(#brandG1)" stroke-width="12" stroke-linecap="round"/>
-        <path d="M30 70c28-18 53-13 76 5 30 24 56 14 80-15"
-              fill="none" stroke="url(#brandG1)" stroke-width="4.5" stroke-linecap="round" opacity=".78"/>
+        <path d="M18 60 C48 18 83 18 120 60 C157 102 192 102 222 60 C192 18 157 18 120 60 C83 102 48 102 18 60"
+              fill="none" stroke="url(#navInf)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <span class="wordmark">
-        f<span class="a">A</span><span class="istar">I</span><span class="fair-r">r</span>
-        <span class="verb">verbunden</span>
-      </span>
     </a>
     <div class="links">
       <a href="#idee">Idee</a>
@@ -324,7 +368,7 @@
     <div class="wrap hero-grid">
       <div>
         <div class="eyebrow">Für jede Generation, die digital mithalten will.</div>
-        <h1>KI verstehen. Digital mithalten. <span class="grad">Gesellschaft mitgestalten.</span></h1>
+        <h1>KI verstehen.<br>Digital mithalten.<br><span class="grad">Gesellschaft mitgestalten.</span></h1>
         <p class="lead">fAIr verbunden bringt KI und neue Technologien dorthin, wo sie im Alltag ankommen: verständlich, praktisch und ohne Berührungsangst. Wir stärken digitale Kompetenz und schaffen neue Zugänge zu gesellschaftlicher und politischer Teilhabe, damit Menschen Entwicklungen nicht nur mitbekommen, sondern mitreden und mitgestalten können.</p>
         <div class="hero-actions">
           <a class="btn hot" href="#stammtisch">Demokratie-Stammtisch entdecken →</a>
@@ -333,33 +377,19 @@
         <div class="status"><i></i><span>Aufbauphase · Mannheim · Bad Langensalza · Kiel · online</span></div>
       </div>
 
-      <div class="brand-stage" aria-label="fAIr verbunden Markenlogo">
-        <div class="hero-signature">
-          <svg class="brandmark" viewBox="0 0 220 110" aria-hidden="true">
-            <defs>
-              <linearGradient id="brandG2" x1="0" y1="0" x2="1" y2="1">
-                <stop stop-color="#27ddf4"/>
-                <stop offset=".48" stop-color="#6d7dff"/>
-                <stop offset="1" stop-color="#ff2b9a"/>
-              </linearGradient>
-            </defs>
-            <path d="M18 62C46 17 82 18 111 53c26 31 49 34 91-12-19 50-58 59-91 23C80 29 54 28 18 62Z"
-                  fill="none" stroke="url(#brandG2)" stroke-width="12" stroke-linecap="round"/>
-            <path d="M30 70c28-18 53-13 76 5 30 24 56 14 80-15"
-                  fill="none" stroke="url(#brandG2)" stroke-width="4.5" stroke-linecap="round" opacity=".78"/>
-          </svg>
-          <span class="wordmark">
-            f<span class="a">A</span><span class="istar">I</span><span class="fair-r">r</span>
-            <span class="verb">verbunden</span>
-          </span>
-          <div class="tag">Menschen · Technologie · Gesellschaft</div>
-          <div class="chips">
-            <span class="chip">KI-Kompetenz</span>
-            <span class="chip">Demokratie</span>
-            <span class="chip">Sicherheit</span>
-            <span class="chip">Selbstbestimmung</span>
-          </div>
-        </div>
+      <div class="hero-symbol" aria-label="fAIr verbunden Infinity-Symbol">
+        <svg class="hero-infinity" viewBox="0 0 520 260" role="img" aria-label="Infinity-Symbol">
+          <defs>
+            <linearGradient id="heroInf" x1="0" y1="0" x2="1" y2="1">
+              <stop stop-color="#27ddf4"/>
+              <stop offset=".48" stop-color="#6d7dff"/>
+              <stop offset="1" stop-color="#ff2b9a"/>
+            </linearGradient>
+          </defs>
+          <path d="M38 130 C100 46 178 46 260 130 C342 214 420 214 482 130 C420 46 342 46 260 130 C178 214 100 214 38 130"
+                fill="none" stroke="url(#heroInf)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="hero-symbol-copy">Menschen · Technologie · Gesellschaft<br>Digital · Sicher · Demokratisch</div>
       </div>
     </div>
   </header>
