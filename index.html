@@ -4,8 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#04162a">
-  <meta name="description" content="fAIr verbunden – Für jede Generation, die digital mithalten will.">
-  <title>fAIr verbunden – Website im Aufbau</title>
+  <meta name="description" content="fAIr verbunden – Für jede Generation, die digital sicher mithalten will.">
+  <link rel="canonical" href="https://fair-verbunden.de/">
+  <meta property="og:title" content="fAIr verbunden">
+  <meta property="og:description" content="Für jede Generation, die digital sicher mithalten will.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fair-verbunden.de/">
+  <title>fAIr verbunden – Internetpräsenz im Aufbau</title>
   <style>
     :root{
       --bg:#04162a;
@@ -134,11 +139,36 @@
       border-radius:25px;
       pointer-events:none;
     }
-    .infinity{
+    .signal{
+      position:relative;
       width:min(82%,390px);
+      aspect-ratio:1.7;
       align-self:center;
       margin:auto;
-      filter:drop-shadow(0 20px 35px rgba(0,0,0,.22));
+    }
+    .signal:before,.signal:after{
+      content:"";
+      position:absolute;
+      border-radius:50%;
+      filter:blur(.2px);
+    }
+    .signal:before{
+      inset:11% 7%;
+      border:22px solid transparent;
+      border-top-color:var(--cyan);
+      border-right-color:var(--blue);
+      transform:rotate(-9deg);
+      opacity:.92;
+      box-shadow:0 0 36px rgba(35,218,241,.08);
+    }
+    .signal:after{
+      inset:26% 21%;
+      border:18px solid transparent;
+      border-bottom-color:var(--pink);
+      border-left-color:var(--blue);
+      transform:rotate(17deg);
+      opacity:.9;
+      box-shadow:0 0 36px rgba(255,45,157,.08);
     }
     .panel h2{
       margin:0 0 10px;
@@ -194,35 +224,25 @@
           <img src="ChatGPT%20Image%2021.%20Sept.%202026,%2018_40_13%20(3).png" alt="fAIr verbunden">
         </div>
 
-        <div class="eyebrow">Für jede Generation, die digital mithalten will.</div>
-        <h1>Hier entsteht die digitale Präsenz von <span>fAIr verbunden.</span></h1>
-        <p class="lead">KI verstehen. Digital mithalten. Gesellschaft mitgestalten. Wir bauen gerade unsere Website, unsere ersten Bildungsangebote und den Digitalen Demokratie-Stammtisch auf.</p>
-        <div class="status"><i></i><span>Verein in Gründung · Mannheim · Bad Langensalza · Kiel · online</span></div>
+        <div class="eyebrow">Für jede Generation, die digital sicher mithalten will.</div>
+        <h1>Hier entsteht die Internetpräsenz von <span>fAIr verbunden.</span></h1>
+        <p class="lead">KI verstehen. Digital sicher mithalten. Gesellschaft mitgestalten. Wir bauen gerade unsere Website und die ersten Angebote von fAIr verbunden auf.</p>
+        <div class="status"><i></i><span>Website im Aufbau · Verein in Gründung</span></div>
       </section>
 
       <aside class="panel">
-        <svg class="infinity" viewBox="0 0 520 260" role="img" aria-label="Verbindung und Teilhabe">
-          <defs>
-            <linearGradient id="inf" x1="0" y1="0" x2="1" y2="1">
-              <stop stop-color="#23daf1"/>
-              <stop offset=".48" stop-color="#6d7dff"/>
-              <stop offset="1" stop-color="#ff2d9d"/>
-            </linearGradient>
-          </defs>
-          <path d="M42 130 C108 48 182 48 260 130 C338 212 412 212 478 130 C412 48 338 48 260 130 C182 212 108 212 42 130"
-                fill="none" stroke="url(#inf)" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <h2>Website im Aufbau.</h2>
-        <p>In Kürze finden Sie hier Informationen zu unseren Projekten, Workshops, Infomaterialien und Möglichkeiten zur Zusammenarbeit.</p>
+        <div class="signal" aria-hidden="true"></div>
+        <h2>Wir sind bald online.</h2>
+        <p>Hier finden Sie künftig Informationen zu unseren Projekten, Workshops, Infomaterialien und Möglichkeiten zur Zusammenarbeit.</p>
         <div class="chips">
           <span class="chip">KI & digitale Kompetenz</span>
-          <span class="chip">Demokratie & Teilhabe</span>
           <span class="chip">Sicherheit & Datenschutz</span>
+          <span class="chip">Demokratie & Teilhabe</span>
           <span class="chip">Medienkompetenz</span>
         </div>
       </aside>
     </div>
   </main>
-  <footer>fair-verbunden.de · Aufbauphase 2026</footer>
+  <footer>© 2026 fAIr verbunden · fair-verbunden.de</footer>
 </body>
 </html>
