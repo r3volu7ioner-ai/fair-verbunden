@@ -3,246 +3,328 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#04162a">
+  <meta name="theme-color" content="#07111f">
   <meta name="description" content="fAIr verbunden – Für jede Generation, die digital sicher mithalten will.">
   <link rel="canonical" href="https://fair-verbunden.de/">
   <meta property="og:title" content="fAIr verbunden">
   <meta property="og:description" content="Für jede Generation, die digital sicher mithalten will.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://fair-verbunden.de/">
-  <title>fAIr verbunden – Internetpräsenz im Aufbau</title>
+  <title>fAIr verbunden – Website im Aufbau</title>
   <style>
     :root{
-      --bg:#04162a;
-      --bg2:#08233d;
-      --ink:#f7fbff;
-      --muted:#b6c7d7;
-      --cyan:#23daf1;
-      --pink:#ff2d9d;
-      --blue:#6d7dff;
-      --line:rgba(255,255,255,.12);
+      --bg:#07111f;
+      --bg-soft:#0b1828;
+      --ink:#f7fafc;
+      --muted:#a9b7c6;
+      --cyan:#46dff2;
+      --pink:#ff4ca6;
+      --line:rgba(255,255,255,.10);
+      --glass:rgba(255,255,255,.035);
     }
+
     *{box-sizing:border-box}
     html,body{min-height:100%}
+
     body{
       margin:0;
       color:var(--ink);
       font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       background:
-        radial-gradient(circle at 14% 8%,rgba(35,218,241,.12),transparent 31rem),
-        radial-gradient(circle at 86% 84%,rgba(255,45,157,.11),transparent 32rem),
-        linear-gradient(145deg,#031224 0%,#061a31 58%,#081b31 100%);
+        radial-gradient(circle at 18% 12%,rgba(70,223,242,.08),transparent 28rem),
+        radial-gradient(circle at 82% 88%,rgba(255,76,166,.07),transparent 30rem),
+        linear-gradient(145deg,#06101c 0%,#081523 52%,#07111f 100%);
       overflow-x:hidden;
     }
-    body:before{
+
+    body::before{
       content:"";
-      position:fixed;inset:0;pointer-events:none;opacity:.13;
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.18;
       background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-      background-size:40px 40px;
-      mask-image:linear-gradient(to bottom,black,transparent 88%);
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+      background-size:48px 48px;
+      mask-image:linear-gradient(to bottom,black 0%,transparent 86%);
     }
-    main{
+
+    .page{
       min-height:100vh;
-      display:grid;
-      place-items:center;
-      padding:54px 22px;
-    }
-    .shell{
-      width:min(1160px,100%);
-      display:grid;
-      grid-template-columns:1.12fr .88fr;
-      gap:74px;
-      align-items:center;
+      width:min(1180px,calc(100% - 40px));
+      margin:auto;
+      display:flex;
+      flex-direction:column;
       position:relative;
       z-index:1;
     }
-    .logo-window{
-      width:390px;
-      height:150px;
-      overflow:hidden;
+
+    header{
+      min-height:108px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .brand{
+      display:inline-flex;
+      align-items:baseline;
+      gap:.34em;
+      font-size:clamp(25px,2.8vw,35px);
+      font-weight:850;
+      letter-spacing:-.045em;
+      line-height:1;
+      white-space:nowrap;
+    }
+
+    .brand .fair{font-weight:900}
+    .brand .a{color:var(--cyan)}
+
+    .brand .i{
       position:relative;
-      margin-bottom:34px;
+      display:inline-block;
+      color:var(--pink);
     }
-    .logo-window img{
+
+    .brand .i::before{
+      content:"✦";
       position:absolute;
-      width:1100px;
-      max-width:none;
-      height:auto;
-      left:-52px;
-      top:-34px;
-      display:block;
+      left:50%;
+      top:-.84em;
+      transform:translateX(-50%);
+      font-size:.28em;
+      color:var(--pink);
+      text-shadow:0 0 12px rgba(255,76,166,.45);
     }
+
+    .brand .connected{
+      font-weight:720;
+      color:#eef5fa;
+    }
+
+    .state{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      color:#91a5b8;
+      font-size:13px;
+      white-space:nowrap;
+    }
+
+    .state::before{
+      content:"";
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--cyan);
+      box-shadow:0 0 14px rgba(70,223,242,.75);
+    }
+
+    main{
+      flex:1;
+      display:grid;
+      grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);
+      gap:72px;
+      align-items:center;
+      padding:78px 0 92px;
+    }
+
     .eyebrow{
-      display:flex;align-items:center;gap:12px;
-      font-weight:800;font-size:12px;letter-spacing:.21em;text-transform:uppercase;
-      color:#dce9f4;margin-bottom:22px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin:0 0 26px;
+      color:#d4e0ea;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.19em;
+      text-transform:uppercase;
     }
-    .eyebrow:before{
-      content:"";width:38px;height:3px;border-radius:9px;
+
+    .eyebrow::before{
+      content:"";
+      width:38px;
+      height:2px;
+      border-radius:99px;
       background:linear-gradient(90deg,var(--cyan),var(--pink));
     }
+
     h1{
       margin:0;
-      max-width:760px;
-      font-size:clamp(48px,6.3vw,86px);
-      line-height:.98;
-      letter-spacing:-.055em;
+      max-width:830px;
+      font-size:clamp(56px,7.2vw,104px);
+      line-height:.92;
+      letter-spacing:-.068em;
+      font-weight:850;
     }
-    h1 span{
-      background:linear-gradient(105deg,var(--cyan),var(--blue) 48%,var(--pink));
-      -webkit-background-clip:text;background-clip:text;color:transparent;
+
+    h1 .accent{
+      background:linear-gradient(105deg,var(--cyan) 5%,#a889ff 48%,var(--pink) 92%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
     }
+
     .lead{
-      max-width:700px;
-      color:#c8d7e5;
-      font-size:clamp(18px,1.65vw,22px);
+      max-width:730px;
+      margin:30px 0 0;
+      color:#bdcad6;
+      font-size:clamp(18px,1.7vw,22px);
       line-height:1.65;
-      margin:28px 0 0;
     }
-    .status{
-      display:inline-flex;align-items:center;gap:10px;
-      margin-top:30px;
-      padding:10px 14px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      color:#aac0d1;
-      font-size:13px;
-      background:rgba(255,255,255,.025);
-    }
-    .status i{
-      width:8px;height:8px;border-radius:50%;
-      background:var(--cyan);box-shadow:0 0 15px var(--cyan);
-    }
+
+    .lead strong{color:#edf5fa;font-weight:720}
+
     .panel{
-      position:relative;
-      min-height:500px;
+      min-height:390px;
       border:1px solid var(--line);
-      border-radius:34px;
+      border-radius:30px;
+      padding:34px;
       background:
-        radial-gradient(circle at 25% 20%,rgba(35,218,241,.14),transparent 37%),
-        radial-gradient(circle at 80% 76%,rgba(255,45,157,.12),transparent 42%),
-        rgba(255,255,255,.025);
-      box-shadow:0 30px 90px rgba(0,0,0,.28);
-      padding:42px;
+        linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018)),
+        var(--glass);
+      box-shadow:0 26px 80px rgba(0,0,0,.22);
       display:flex;
       flex-direction:column;
-      justify-content:flex-end;
+      justify-content:space-between;
+      position:relative;
       overflow:hidden;
     }
-    .panel:before{
+
+    .panel::after{
       content:"";
       position:absolute;
-      inset:24px;
-      border:1px solid rgba(255,255,255,.055);
-      border-radius:25px;
+      width:230px;
+      height:230px;
+      border-radius:50%;
+      right:-95px;
+      bottom:-105px;
+      background:radial-gradient(circle,rgba(255,76,166,.14),transparent 70%);
       pointer-events:none;
     }
-    .signal{
-      position:relative;
-      width:min(82%,390px);
-      aspect-ratio:1.7;
-      align-self:center;
-      margin:auto;
+
+    .panel-kicker{
+      color:#91a6b8;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
     }
-    .signal:before,.signal:after{
-      content:"";
-      position:absolute;
-      border-radius:50%;
-      filter:blur(.2px);
+
+    .panel-copy{
+      margin:auto 0 0;
     }
-    .signal:before{
-      inset:11% 7%;
-      border:22px solid transparent;
-      border-top-color:var(--cyan);
-      border-right-color:var(--blue);
-      transform:rotate(-9deg);
-      opacity:.92;
-      box-shadow:0 0 36px rgba(35,218,241,.08);
-    }
-    .signal:after{
-      inset:26% 21%;
-      border:18px solid transparent;
-      border-bottom-color:var(--pink);
-      border-left-color:var(--blue);
-      transform:rotate(17deg);
-      opacity:.9;
-      box-shadow:0 0 36px rgba(255,45,157,.08);
-    }
+
     .panel h2{
-      margin:0 0 10px;
-      font-size:28px;
-      letter-spacing:-.03em;
+      margin:0 0 14px;
+      font-size:clamp(29px,3vw,43px);
+      line-height:1.06;
+      letter-spacing:-.045em;
     }
+
     .panel p{
       margin:0;
-      color:#a9bfd0;
-      line-height:1.6;
+      color:#aebfcd;
+      line-height:1.65;
       font-size:15px;
-      max-width:440px;
     }
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
-    .chip{
+
+    .topics{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:28px;
+    }
+
+    .topic{
       border:1px solid var(--line);
       border-radius:999px;
       padding:8px 11px;
-      color:#bed0df;
-      font-size:12px;
       background:rgba(255,255,255,.025);
-    }
-    footer{
-      position:fixed;
-      left:0;right:0;bottom:0;
-      padding:14px 22px;
-      text-align:center;
-      color:#738ca2;
+      color:#bfceda;
       font-size:12px;
-      pointer-events:none;
     }
-    @media(max-width:900px){
-      main{padding-top:36px;padding-bottom:80px}
-      .shell{grid-template-columns:1fr;gap:34px}
-      .panel{min-height:390px}
-      .logo-window{width:340px;height:132px}
-      .logo-window img{width:960px;left:-45px;top:-30px}
+
+    footer{
+      min-height:72px;
+      border-top:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      color:#73879a;
+      font-size:12px;
     }
-    @media(max-width:520px){
-      .logo-window{width:290px;height:112px}
-      .logo-window img{width:820px;left:-38px;top:-25px}
-      .panel{padding:28px;min-height:330px}
-      .panel:before{inset:14px}
-      h1{font-size:48px}
+
+    @media(max-width:860px){
+      .page{width:min(100% - 30px,720px)}
+      header{min-height:92px}
+      .state{display:none}
+      main{
+        grid-template-columns:1fr;
+        gap:38px;
+        padding:62px 0 70px;
+      }
+      .panel{min-height:300px}
+      h1{font-size:clamp(52px,14vw,82px)}
+      footer{align-items:flex-start;flex-direction:column;justify-content:center;padding:18px 0}
+    }
+
+    @media(max-width:480px){
+      .brand{font-size:26px}
+      .eyebrow{font-size:10px;letter-spacing:.15em}
+      .panel{padding:26px;border-radius:24px}
+      .lead{font-size:18px}
     }
   </style>
 </head>
 <body>
-  <main>
-    <div class="shell">
-      <section>
-        <div class="logo-window" aria-label="fAIr verbunden Logo">
-          <img src="ChatGPT%20Image%2021.%20Sept.%202026,%2018_40_13%20(3).png" alt="fAIr verbunden">
-        </div>
+  <div class="page">
+    <header>
+      <div class="brand" aria-label="fAIr verbunden">
+        <span class="fair">f<span class="a">A</span><span class="i">I</span>r</span>
+        <span class="connected">verbunden</span>
+      </div>
+      <div class="state">Website im Aufbau</div>
+    </header>
 
-        <div class="eyebrow">Für jede Generation, die digital sicher mithalten will.</div>
-        <h1>Hier entsteht die Internetpräsenz von <span>fAIr verbunden.</span></h1>
-        <p class="lead">KI verstehen. Digital sicher mithalten. Gesellschaft mitgestalten. Wir bauen gerade unsere Website und die ersten Angebote von fAIr verbunden auf.</p>
-        <div class="status"><i></i><span>Website im Aufbau · Verein in Gründung</span></div>
+    <main>
+      <section>
+        <p class="eyebrow">Für jede Generation, die digital sicher mithalten will.</p>
+        <h1>Hier entsteht <span class="accent">fAIr verbunden.</span></h1>
+        <p class="lead">
+          Wir schaffen einen Ort für <strong>digitale Kompetenz, sicheren Umgang mit KI,
+          Medienwissen und gesellschaftliche Teilhabe.</strong> Verständlich, praktisch
+          und für Menschen, die digital nicht den Anschluss verlieren wollen.
+        </p>
       </section>
 
       <aside class="panel">
-        <div class="signal" aria-hidden="true"></div>
-        <h2>Wir sind bald online.</h2>
-        <p>Hier finden Sie künftig Informationen zu unseren Projekten, Workshops, Infomaterialien und Möglichkeiten zur Zusammenarbeit.</p>
-        <div class="chips">
-          <span class="chip">KI & digitale Kompetenz</span>
-          <span class="chip">Sicherheit & Datenschutz</span>
-          <span class="chip">Demokratie & Teilhabe</span>
-          <span class="chip">Medienkompetenz</span>
+        <div class="panel-kicker">Verein in Gründung</div>
+        <div class="panel-copy">
+          <h2>Wir bauen gerade auf.</h2>
+          <p>
+            Bald finden Sie hier unsere Projekte, Workshops, Informationsangebote
+            und Möglichkeiten, fAIr verbunden zu unterstützen oder mit uns
+            zusammenzuarbeiten.
+          </p>
+          <div class="topics">
+            <span class="topic">KI-Kompetenz</span>
+            <span class="topic">Digitale Sicherheit</span>
+            <span class="topic">Medienkompetenz</span>
+            <span class="topic">Teilhabe</span>
+          </div>
         </div>
       </aside>
-    </div>
-  </main>
-  <footer>© 2026 fAIr verbunden · fair-verbunden.de</footer>
+    </main>
+
+    <footer>
+      <span>© 2026 fAIr verbunden</span>
+      <span>fair-verbunden.de</span>
+    </footer>
+  </div>
 </body>
 </html>
