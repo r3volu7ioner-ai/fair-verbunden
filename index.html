@@ -3,549 +3,226 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#03172a">
-  <meta name="description" content="fAIr verbunden – Für jede Generation, die digital sicher mithalten will.">
-  <link rel="canonical" href="https://fair-verbunden.de/">
-  <meta property="og:title" content="fAIr verbunden">
-  <meta property="og:description" content="Für jede Generation, die digital sicher mithalten will.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://fair-verbunden.de/">
-  <title>fAIr verbunden – Verein in Gründung</title>
-
+  <meta name="theme-color" content="#04162a">
+  <meta name="description" content="fAIr verbunden – Für jede Generation, die digital mithalten will.">
+  <title>fAIr verbunden – Website im Aufbau</title>
   <style>
     :root{
-      --navy:#03172a;
-      --navy-deep:#02111f;
-      --navy-panel:#071f38;
-      --white:#f7fbff;
-      --muted:#b4c4d2;
-      --muted2:#8299ac;
-      --cyan:#22d8f5;
-      --cyan2:#58cfff;
-      --blue:#4f8cff;
-      --pink:#ff2e9b;
-      --pink2:#ff65bd;
-      --line:rgba(255,255,255,.115);
-      --line-soft:rgba(255,255,255,.065);
+      --bg:#04162a;
+      --bg2:#08233d;
+      --ink:#f7fbff;
+      --muted:#b6c7d7;
+      --cyan:#23daf1;
+      --pink:#ff2d9d;
+      --blue:#6d7dff;
+      --line:rgba(255,255,255,.12);
     }
-
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
     html,body{min-height:100%}
-
     body{
       margin:0;
-      color:var(--white);
+      color:var(--ink);
       font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       background:
-        radial-gradient(circle at 8% 12%,rgba(34,216,245,.10),transparent 27rem),
-        radial-gradient(circle at 87% 18%,rgba(255,46,155,.055),transparent 28rem),
-        linear-gradient(145deg,#02111f 0%,#03172a 54%,#04182c 100%);
+        radial-gradient(circle at 14% 8%,rgba(35,218,241,.12),transparent 31rem),
+        radial-gradient(circle at 86% 84%,rgba(255,45,157,.11),transparent 32rem),
+        linear-gradient(145deg,#031224 0%,#061a31 58%,#081b31 100%);
       overflow-x:hidden;
     }
-
-    body::before{
+    body:before{
       content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      opacity:.11;
+      position:fixed;inset:0;pointer-events:none;opacity:.13;
       background-image:
-        linear-gradient(rgba(255,255,255,.024) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.024) 1px,transparent 1px);
-      background-size:46px 46px;
-      mask-image:linear-gradient(to bottom,black 0%,transparent 82%);
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+      background-size:40px 40px;
+      mask-image:linear-gradient(to bottom,black,transparent 88%);
     }
-
-    .wrap{
-      width:min(1280px,calc(100% - 60px));
-      margin:0 auto;
-      position:relative;
-      z-index:1;
-    }
-
-    /* ORIGINAL BRAND DIRECTION: DER BOGEN */
-    .brand{
-      position:relative;
-      display:block;
-      width:320px;
-      height:88px;
-      color:var(--white);
-      text-decoration:none;
-      flex:0 0 auto;
-    }
-
-    .brand-fair{
-      position:absolute;
-      left:0;
-      top:5px;
-      font-size:34px;
-      line-height:1;
-      font-weight:900;
-      letter-spacing:-.055em;
-      z-index:2;
-    }
-
-    .brand-fair .a{color:var(--cyan)}
-    .brand-fair .i{
-      color:var(--pink);
-      position:relative;
-      display:inline-block;
-    }
-
-    .brand-fair .i::before{
-      content:"";
-      position:absolute;
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:#fff;
-      left:50%;
-      top:-8px;
-      transform:translateX(-50%);
-      box-shadow:
-        -6px -5px 0 -1px var(--cyan),
-        7px -6px 0 -1px var(--pink);
-    }
-
-    .brand-verbunden{
-      position:absolute;
-      left:0;
-      bottom:0;
-      font-size:39px;
-      line-height:1;
-      font-weight:860;
-      letter-spacing:-.055em;
-      z-index:2;
-    }
-
-    .brand-bow{
-      position:absolute;
-      left:128px;
-      top:-2px;
-      width:184px;
-      height:75px;
-      z-index:1;
-      overflow:visible;
-      filter:drop-shadow(0 9px 18px rgba(34,216,245,.10));
-    }
-
-    header{
-      min-height:118px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:36px;
-      border-bottom:1px solid var(--line);
-    }
-
-    .state{
-      display:flex;
-      align-items:center;
-      gap:11px;
-      color:#a8bac9;
-      font-size:13px;
-      letter-spacing:.01em;
-      white-space:nowrap;
-    }
-    .state::before{
-      content:"";
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:var(--cyan);
-      box-shadow:0 0 16px rgba(34,216,245,.75);
-    }
-
-    .hero{
-      min-height:655px;
+    main{
+      min-height:100vh;
       display:grid;
-      grid-template-columns:minmax(0,1.32fr) minmax(330px,.68fr);
-      gap:86px;
-      align-items:center;
-      padding:74px 0 82px;
+      place-items:center;
+      padding:54px 22px;
     }
-
+    .shell{
+      width:min(1160px,100%);
+      display:grid;
+      grid-template-columns:1.12fr .88fr;
+      gap:74px;
+      align-items:center;
+      position:relative;
+      z-index:1;
+    }
+    .logo-window{
+      width:390px;
+      height:150px;
+      overflow:hidden;
+      position:relative;
+      margin-bottom:34px;
+    }
+    .logo-window img{
+      position:absolute;
+      width:1100px;
+      max-width:none;
+      height:auto;
+      left:-52px;
+      top:-34px;
+      display:block;
+    }
     .eyebrow{
-      display:flex;
-      align-items:center;
-      gap:13px;
-      margin:0 0 28px;
-      color:#dce7ef;
-      font-size:12px;
-      line-height:1.4;
-      font-weight:800;
-      letter-spacing:.23em;
-      text-transform:uppercase;
+      display:flex;align-items:center;gap:12px;
+      font-weight:800;font-size:12px;letter-spacing:.21em;text-transform:uppercase;
+      color:#dce9f4;margin-bottom:22px;
     }
-    .eyebrow::before{
-      content:"";
-      width:42px;
-      height:3px;
-      border-radius:99px;
+    .eyebrow:before{
+      content:"";width:38px;height:3px;border-radius:9px;
       background:linear-gradient(90deg,var(--cyan),var(--pink));
-      flex:0 0 auto;
     }
-
     h1{
       margin:0;
-      max-width:900px;
-      font-size:clamp(62px,7.2vw,108px);
-      line-height:.91;
-      letter-spacing:-.069em;
-      font-weight:900;
-      color:#fff;
+      max-width:760px;
+      font-size:clamp(48px,6.3vw,86px);
+      line-height:.98;
+      letter-spacing:-.055em;
     }
-
-    .hero-brand{
-      display:block;
-      margin-top:.10em;
-      white-space:nowrap;
-      color:#fff;
+    h1 span{
+      background:linear-gradient(105deg,var(--cyan),var(--blue) 48%,var(--pink));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
     }
-    .hero-brand .a{color:var(--cyan)}
-    .hero-brand .i{color:var(--pink)}
-
     .lead{
-      max-width:860px;
-      margin:33px 0 0;
-      color:#c9d5df;
-      font-size:clamp(19px,1.7vw,24px);
-      line-height:1.61;
+      max-width:700px;
+      color:#c8d7e5;
+      font-size:clamp(18px,1.65vw,22px);
+      line-height:1.65;
+      margin:28px 0 0;
     }
-    .lead strong{
-      color:#fff;
-      font-weight:780;
-    }
-
-    .sublead{
-      max-width:790px;
-      margin:17px 0 0;
-      color:#98adbd;
-      font-size:16px;
-      line-height:1.72;
-    }
-
-    .chips{
-      display:flex;
-      flex-wrap:wrap;
-      gap:9px;
-      margin-top:28px;
-    }
-    .chip{
-      padding:9px 13px;
+    .status{
+      display:inline-flex;align-items:center;gap:10px;
+      margin-top:30px;
+      padding:10px 14px;
       border:1px solid var(--line);
       border-radius:999px;
-      background:rgba(255,255,255,.02);
-      color:#b8c7d3;
-      font-size:12px;
+      color:#aac0d1;
+      font-size:13px;
+      background:rgba(255,255,255,.025);
     }
-
-    .side{
+    .status i{
+      width:8px;height:8px;border-radius:50%;
+      background:var(--cyan);box-shadow:0 0 15px var(--cyan);
+    }
+    .panel{
       position:relative;
-      min-height:435px;
+      min-height:500px;
+      border:1px solid var(--line);
+      border-radius:34px;
+      background:
+        radial-gradient(circle at 25% 20%,rgba(35,218,241,.14),transparent 37%),
+        radial-gradient(circle at 80% 76%,rgba(255,45,157,.12),transparent 42%),
+        rgba(255,255,255,.025);
+      box-shadow:0 30px 90px rgba(0,0,0,.28);
+      padding:42px;
       display:flex;
       flex-direction:column;
       justify-content:flex-end;
-      padding:42px 40px;
-      border:1px solid rgba(255,255,255,.15);
-      border-radius:32px;
-      overflow:hidden;
-      background:
-        radial-gradient(circle at 108% -5%,rgba(255,46,155,.14),transparent 42%),
-        radial-gradient(circle at -5% 105%,rgba(34,216,245,.10),transparent 43%),
-        linear-gradient(150deg,rgba(255,255,255,.045),rgba(255,255,255,.014));
-      box-shadow:0 28px 80px rgba(0,0,0,.25);
-    }
-
-    .side-bow{
-      position:absolute;
-      width:330px;
-      height:154px;
-      top:30px;
-      right:-28px;
-      opacity:.78;
-      filter:drop-shadow(0 16px 28px rgba(34,216,245,.10));
-    }
-
-    .side-kicker{
-      position:relative;
-      z-index:2;
-      margin-bottom:auto;
-      color:#91a8ba;
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:.23em;
-      text-transform:uppercase;
-    }
-
-    .side h2{
-      position:relative;
-      z-index:2;
-      margin:0 0 15px;
-      font-size:clamp(38px,3.8vw,54px);
-      line-height:1.01;
-      letter-spacing:-.052em;
-      font-weight:850;
-    }
-    .side p{
-      position:relative;
-      z-index:2;
-      margin:0;
-      color:#bccbd7;
-      font-size:17px;
-      line-height:1.65;
-    }
-    .accent-rule{
-      position:relative;
-      z-index:2;
-      width:100%;
-      height:3px;
-      margin-top:28px;
-      border-radius:99px;
-      background:linear-gradient(90deg,var(--cyan),var(--blue) 52%,var(--pink));
-    }
-
-    .about{
-      border-top:1px solid var(--line);
-      padding:58px 0 78px;
-    }
-
-    .about-top{
-      display:grid;
-      grid-template-columns:.9fr 1.1fr;
-      gap:62px;
-      align-items:end;
-      margin-bottom:30px;
-    }
-    .section-label{
-      margin-bottom:12px;
-      color:#8ea6b8;
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-    }
-    .about h2{
-      margin:0;
-      max-width:610px;
-      font-size:clamp(37px,4.8vw,64px);
-      line-height:1.02;
-      letter-spacing:-.057em;
-    }
-    .about-copy{
-      margin:0;
-      max-width:720px;
-      color:#aebfcd;
-      font-size:18px;
-      line-height:1.68;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-    }
-    .card{
-      min-height:225px;
-      padding:28px;
-      border:1px solid var(--line);
-      border-radius:25px;
-      background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));
-      position:relative;
       overflow:hidden;
     }
-    .card::before{
+    .panel:before{
       content:"";
       position:absolute;
-      width:160px;
-      height:160px;
-      border-radius:50%;
-      top:-80px;
-      right:-76px;
-      background:var(--glow);
-      filter:blur(30px);
-      opacity:.16;
+      inset:24px;
+      border:1px solid rgba(255,255,255,.055);
+      border-radius:25px;
+      pointer-events:none;
     }
-    .num{
-      color:#7f98ab;
-      font-size:10px;
-      font-weight:800;
-      letter-spacing:.19em;
-      text-transform:uppercase;
+    .infinity{
+      width:min(82%,390px);
+      align-self:center;
+      margin:auto;
+      filter:drop-shadow(0 20px 35px rgba(0,0,0,.22));
     }
-    .card h3{
-      position:relative;
-      margin:50px 0 10px;
-      font-size:25px;
-      line-height:1.10;
-      letter-spacing:-.037em;
+    .panel h2{
+      margin:0 0 10px;
+      font-size:28px;
+      letter-spacing:-.03em;
     }
-    .card p{
-      position:relative;
+    .panel p{
       margin:0;
-      color:#9fb2c1;
+      color:#a9bfd0;
+      line-height:1.6;
       font-size:15px;
-      line-height:1.60;
+      max-width:440px;
     }
-
-    footer{
-      min-height:72px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      border-top:1px solid var(--line);
-      color:#6f879a;
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+    .chip{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 11px;
+      color:#bed0df;
       font-size:12px;
+      background:rgba(255,255,255,.025);
     }
-
-    @media(max-width:1000px){
-      .hero{grid-template-columns:1fr;gap:38px;min-height:auto}
-      .side{min-height:380px}
-      .about-top{grid-template-columns:1fr;gap:20px}
-      .cards{grid-template-columns:1fr}
+    footer{
+      position:fixed;
+      left:0;right:0;bottom:0;
+      padding:14px 22px;
+      text-align:center;
+      color:#738ca2;
+      font-size:12px;
+      pointer-events:none;
     }
-
-    @media(max-width:650px){
-      .wrap{width:min(100% - 28px,760px)}
-      header{min-height:100px}
-      .brand{width:246px;height:71px}
-      .brand-fair{font-size:27px}
-      .brand-verbunden{font-size:31px}
-      .brand-bow{left:100px;width:145px;height:60px}
-      .state{display:none}
-      .hero{padding:58px 0 64px}
-      .eyebrow{font-size:10px;letter-spacing:.16em}
-      h1{font-size:clamp(51px,14.7vw,77px)}
-      .hero-brand{white-space:normal}
-      .lead{font-size:18px}
-      .sublead{font-size:15px}
-      .side{padding:29px 26px;border-radius:26px}
-      .side-bow{width:270px;right:-40px}
-      .about{padding:48px 0 60px}
-      footer{padding:18px 0;flex-direction:column;align-items:flex-start}
+    @media(max-width:900px){
+      main{padding-top:36px;padding-bottom:80px}
+      .shell{grid-template-columns:1fr;gap:34px}
+      .panel{min-height:390px}
+      .logo-window{width:340px;height:132px}
+      .logo-window img{width:960px;left:-45px;top:-30px}
+    }
+    @media(max-width:520px){
+      .logo-window{width:290px;height:112px}
+      .logo-window img{width:820px;left:-38px;top:-25px}
+      .panel{padding:28px;min-height:330px}
+      .panel:before{inset:14px}
+      h1{font-size:48px}
     }
   </style>
 </head>
-
 <body>
-  <div class="wrap">
-    <header>
-      <a class="brand" href="/" aria-label="fAIr verbunden">
-        <span class="brand-fair">f<span class="a">A</span><span class="i">I</span>r</span>
-        <svg class="brand-bow" viewBox="0 0 250 100" aria-hidden="true">
-          <defs>
-            <linearGradient id="logoBow" x1="0" y1="1" x2="1" y2="0">
-              <stop offset="0" stop-color="#22d8f5"/>
-              <stop offset=".48" stop-color="#58cfff"/>
-              <stop offset=".73" stop-color="#d976db"/>
-              <stop offset="1" stop-color="#ff2e9b"/>
-            </linearGradient>
-          </defs>
-          <path d="M14 77 C68 8 145 8 226 70"
-                fill="none" stroke="url(#logoBow)" stroke-width="18" stroke-linecap="butt"/>
-          <path d="M33 78 C88 30 143 23 207 64"
-                fill="none" stroke="#e6f7ff" stroke-opacity=".56" stroke-width="5" stroke-linecap="round"/>
-        </svg>
-        <span class="brand-verbunden">verbunden</span>
-      </a>
-
-      <div class="state">Verein in Gründung · Website im Aufbau</div>
-    </header>
-
-    <main class="hero">
+  <main>
+    <div class="shell">
       <section>
-        <div class="eyebrow">Für jede Generation, die digital sicher mithalten will.</div>
-        <h1>
-          Hier entsteht
-          <span class="hero-brand">f<span class="a">A</span><span class="i">I</span>r verbunden.</span>
-        </h1>
-
-        <p class="lead">
-          <strong>fAIr verbunden ist ein Verein in Gründung</strong> für digitale Kompetenz,
-          sicheren Umgang mit Künstlicher Intelligenz, Medienwissen und gesellschaftliche Teilhabe.
-        </p>
-
-        <p class="sublead">
-          Wir schaffen verständliche, praxisnahe Angebote, damit Menschen digitale Entwicklungen
-          sicher verstehen, selbstbestimmt nutzen und gesellschaftlich mitgestalten können.
-        </p>
-
-        <div class="chips">
-          <span class="chip">KI verstehen</span>
-          <span class="chip">Sicher im Netz</span>
-          <span class="chip">Medienkompetenz</span>
-          <span class="chip">Digitale Teilhabe</span>
+        <div class="logo-window" aria-label="fAIr verbunden Logo">
+          <img src="ChatGPT%20Image%2021.%20Sept.%202026,%2018_40_13%20(3).png" alt="fAIr verbunden">
         </div>
+
+        <div class="eyebrow">Für jede Generation, die digital mithalten will.</div>
+        <h1>Hier entsteht die digitale Präsenz von <span>fAIr verbunden.</span></h1>
+        <p class="lead">KI verstehen. Digital mithalten. Gesellschaft mitgestalten. Wir bauen gerade unsere Website, unsere ersten Bildungsangebote und den Digitalen Demokratie-Stammtisch auf.</p>
+        <div class="status"><i></i><span>Verein in Gründung · Mannheim · Bad Langensalza · Kiel · online</span></div>
       </section>
 
-      <aside class="side">
-        <svg class="side-bow" viewBox="0 0 440 210" aria-hidden="true">
+      <aside class="panel">
+        <svg class="infinity" viewBox="0 0 520 260" role="img" aria-label="Verbindung und Teilhabe">
           <defs>
-            <linearGradient id="sideBowGrad" x1="0" y1="1" x2="1" y2="0">
-              <stop offset="0" stop-color="#22d8f5"/>
-              <stop offset=".42" stop-color="#58cfff"/>
-              <stop offset=".70" stop-color="#bb79e8"/>
-              <stop offset="1" stop-color="#ff2e9b"/>
+            <linearGradient id="inf" x1="0" y1="0" x2="1" y2="1">
+              <stop stop-color="#23daf1"/>
+              <stop offset=".48" stop-color="#6d7dff"/>
+              <stop offset="1" stop-color="#ff2d9d"/>
             </linearGradient>
           </defs>
-          <path d="M15 175 C110 32 246 18 418 145"
-                fill="none" stroke="url(#sideBowGrad)" stroke-width="29" stroke-linecap="butt"/>
-          <path d="M50 174 C148 77 254 58 378 138"
-                fill="none" stroke="#edfaff" stroke-opacity=".30" stroke-width="7" stroke-linecap="round"/>
+          <path d="M42 130 C108 48 182 48 260 130 C338 212 412 212 478 130 C412 48 338 48 260 130 C182 212 108 212 42 130"
+                fill="none" stroke="url(#inf)" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-
-        <div class="side-kicker">Internetpräsenz im Aufbau</div>
-        <div>
-          <h2>Wir bauen gerade auf.</h2>
-          <p>
-            Bald finden Sie hier Informationen über den Verein, unsere ersten Projekte,
-            Workshops, Veranstaltungen, Materialien und Möglichkeiten zur Zusammenarbeit.
-          </p>
-          <div class="accent-rule"></div>
+        <h2>Website im Aufbau.</h2>
+        <p>In Kürze finden Sie hier Informationen zu unseren Projekten, Workshops, Infomaterialien und Möglichkeiten zur Zusammenarbeit.</p>
+        <div class="chips">
+          <span class="chip">KI & digitale Kompetenz</span>
+          <span class="chip">Demokratie & Teilhabe</span>
+          <span class="chip">Sicherheit & Datenschutz</span>
+          <span class="chip">Medienkompetenz</span>
         </div>
       </aside>
-    </main>
-
-    <section class="about">
-      <div class="about-top">
-        <div>
-          <div class="section-label">Wofür wir stehen</div>
-          <h2>Menschen verbinden. Zukunft gestalten.</h2>
-        </div>
-        <p class="about-copy">
-          Digitale Teilhabe soll keine Altersfrage sein. fAIr verbunden verbindet Bildung,
-          Sicherheit und gesellschaftliche Teilhabe und macht digitale Entwicklungen
-          verständlich, praktisch und zugänglich.
-        </p>
-      </div>
-
-      <div class="cards">
-        <article class="card" style="--glow:#22d8f5">
-          <span class="num">01 / VERSTEHEN</span>
-          <h3>KI & neue Technologien</h3>
-          <p>Chancen begreifen, Risiken einordnen und digitale Entwicklungen verständlich machen.</p>
-        </article>
-
-        <article class="card" style="--glow:#ff2e9b">
-          <span class="num">02 / SICHER HANDELN</span>
-          <h3>Sicherheit statt Überforderung</h3>
-          <p>Betrugsmaschen erkennen, Daten schützen und selbstbewusster im digitalen Alltag handeln.</p>
-        </article>
-
-        <article class="card" style="--glow:#4f8cff">
-          <span class="num">03 / TEILHABEN</span>
-          <h3>Dialog & Mitgestaltung</h3>
-          <p>Menschen und Generationen verbinden, Orientierung schaffen und gesellschaftliche Teilhabe stärken.</p>
-        </article>
-      </div>
-    </section>
-
-    <footer>
-      <span>© 2026 fAIr verbunden · Verein in Gründung</span>
-      <span>fair-verbunden.de</span>
-    </footer>
-  </div>
+    </div>
+  </main>
+  <footer>fair-verbunden.de · Aufbauphase 2026</footer>
 </body>
 </html>
